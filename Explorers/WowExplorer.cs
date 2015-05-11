@@ -232,6 +232,19 @@ namespace WowDotNetAPI
             return item;
         }
 
+        //extended by Hiale
+        public Item GetItemWithoutKey(int id)
+        {
+            Item item;
+
+            TryGetData<Item>(
+                string.Format(@"http://{0}.battle.net/api/wow/item/{1}?locale={2}", Region.ToString().ToLower(), id, Locale),
+                out item);
+
+            return item;
+        }
+        //extended by Hiale
+
         public IEnumerable<ItemClassInfo> GetItemClasses()
         {
             ItemClassData itemclassdata;

@@ -19,5 +19,19 @@ namespace WowDotNetAPI.Models
         public int Quantity { get; set; }
         [DataMember(Name = "timeLeft")]
         public string TimeLeft { get; set; }
+
+        //extended by Hiale
+        [DataMember(Name ="petSpeciesId")]
+        public int? PetSpeciesId { get; set; }
+        
+        [DataMember(Name= "petBreedId")]
+        public int? PetBreedId { get; set; }
+
+        [DataMember(Name = "petLevel")]
+        public int? PetLevel { get; set; }
+
+        [DataMember(Name = "petQualityId")]
+        public int? PetQualityId { get; set; }
+        //extended by Hiale
     }
 }
