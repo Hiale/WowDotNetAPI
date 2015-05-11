@@ -8,7 +8,7 @@ namespace WowDotNetAPI.Explorers.Test
     public class AuctionTests
     {
         private static WowExplorer explorer;
-        private static string APIKey = "";
+        private static string APIKey = TestStrings.APIKey;
 
         [ClassInitialize]
         public static void ClassInit(TestContext context)
@@ -19,8 +19,8 @@ namespace WowDotNetAPI.Explorers.Test
         [TestMethod]
         public void Get_US_Realm_Auction_Data()
         {
-            Auctions auctions = explorer.GetAuctions("Skullcrusher");
-            Assert.IsTrue(auctions.Horde.Auctions.Count() > 0);
+            Auctions auctions = explorer.GetAuctions("skullcrusher");
+            Assert.IsTrue(auctions.AllAuctionHouses.Auctions.Count() > 0);
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace WowDotNetAPI.Explorers.Test
             WowExplorer euExplorer = new WowExplorer(Region.EU, Locale.fr_FR, APIKey);
 
             Auctions auctions = euExplorer.GetAuctions("Twisting Nether");
-            Assert.IsTrue(auctions.Horde.Auctions.Count() > 0);
+            Assert.IsTrue(auctions.AllAuctionHouses.Auctions.Count() > 0);
         }
 
         [TestMethod]
@@ -38,7 +38,7 @@ namespace WowDotNetAPI.Explorers.Test
             WowExplorer twExplorer = new WowExplorer(Region.TW, Locale.zh_TW, APIKey);
             
             Auctions auctions = twExplorer.GetAuctions("Balnazzar");
-            Assert.IsTrue(auctions.Horde.Auctions.Count() > 0);
+            Assert.IsTrue(auctions.AllAuctionHouses.Auctions.Count() > 0);
         }
     }
 }
